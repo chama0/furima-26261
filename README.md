@@ -30,7 +30,7 @@ Things you may want to cover:
 |------|----|-------|
 |nickname|string|null: false|
 |email|string|null: false, unique: true|
-|password|string|null: false|
+|encrypted_password|string|null: false|
 |firstname|string|null: false|
 |lastname|string|null: false|
 |firstname_reading|string|null: false|
