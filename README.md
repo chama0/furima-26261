@@ -33,8 +33,8 @@ Things you may want to cover:
 |password|string|null: false|
 |firstname|string|null: false|
 |lastname|string|null: false|
-|h_firstname|string|null: false|
-|h_lastname|string|null: false|
+|firstname_reading|string|null: false|
+|lastname_reading|string|null: false|
 |birthday|date|null: false|
 ### Association
 - has_many: items
@@ -51,7 +51,7 @@ Things you may want to cover:
 |shipregion_id|integer|null: false|
 |estshipdate_id|integer|null: false|
 |price|integer|null: false|
-|user_id|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
 ### Association
 - belongs_to: user
 - has_one: purchase
@@ -65,15 +65,15 @@ Things you may want to cover:
 |house_number|string|null: false|
 |building_name|string||
 |phone_number|string|null: false|
-|purchase_id|references|null: false, foreign_key: true|
+|purchase|references|null: false, foreign_key: true|
 ### Association
 - belongs_to: purchase
 
 ### Purchasesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|item_id|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|item|references|null: false, foreign_key: true|
 ### Association
 - belongs_to: user
 - belongs_to: item
