@@ -8,8 +8,8 @@ FactoryBot.define do
     password = Faker::Internet.password(min_length: 6)
     password              { password }
     password_confirmation { password }
-    last_name             { person.last.kanji }
-    first_name            { person.first.kanji }
+    lastname              { person.last.kanji }
+    firstname             { person.first.kanji }
     lastname_reading      { person.last.katakana }
     firstname_reading     { person.first.katakana }
     birthday              { Faker::Date.backward }
