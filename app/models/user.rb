@@ -4,12 +4,20 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :nickname, presence: true
-  validates :email, presence: true, uniqueness: true, format: { with: /\A\S+@\S+\.\S+\z/ }
-  validates :password, presence: true, length: { minimum: 6 }, format: { with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{6,}/ }
-  validates :lastname, presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
-  validates :firstname, presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
-  validates :lastname_reading, presence: true, format: { with: /\A([ァ-ン]|ー)+\z/ }
-  validates :firstname_reading, presence: true, format: { with: /\A([ァ-ン]|ー)+\z/ }
-  validates :birthday, presence: true
+  with_options presence: true do
+    validates :nickname
+    validates :birthday
+    validates :email, uniqueness: true, format: { with: /\A\S+@\S+\.\S+\z/ }
+    validates :password, length: { minimum: 6 }, format: { with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{6,}/ }
+
+    with_options format: { with: /\A[ぁ-んァ-ン一-龥]/ } do
+      validates :lastname
+      validates :firstname
+    end
+
+    with_options format: { with: /\A([ァ-ン]|ー)+\z/ } do
+      validates :lastname_reading
+      validates :firstname_reading
+    end
+  end
 end
