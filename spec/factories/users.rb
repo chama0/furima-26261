@@ -14,4 +14,4 @@ FactoryBot.define do
     firstname_reading     { person.first.katakana }
     birthday              { Faker::Date.backward }
   end
-end 
+end
