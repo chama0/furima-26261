@@ -6,8 +6,17 @@ RSpec.describe User, type: :model do
       @user = FactoryBot.build(:user)
     end
 
-    it 'nicknameとemailとpasswordとpassword_confirmationとlast_name,first_nameとlastname_reading,firstname_readingとbirthdayが存在すれば登録できること' do
-      expect(@user).to be_valid
+    context 'ユーザー新規登録ができる時' do
+      it 'nicknameとemailとpasswordとpassword_confirmationとlastname,firstnameとlastname_reading,firstname_readingとbirthdayが存在すれば登録できること' do
+        expect(@user).to be_valid
+      end
+    end
+
+    context 'ユーザーが新規登録できない時' do
+      it 'nicknameとemailとpasswordとpassword_confirmationとlastname,firstnameとlastname_reading,firstname_readingとbirthdayが存在しないと登録できないこと' do
+        @user = build(:user, nickname: nil, email: nil, password: nil, password_confirmation: nil, lastname: nil, firstname: nil, lastname_reading: nil, firstname_reading: nil, birthday: nil)
+        expect(@user).not_to be_valid
+      end
     end
 
     it 'nicknameが空では登録できないこと' do
