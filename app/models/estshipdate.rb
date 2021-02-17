@@ -1,0 +1,2 @@
+class Estshipdate < ApplicationRecord
+end

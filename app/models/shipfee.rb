@@ -1,0 +1,2 @@
+class Shipfee < ApplicationRecord
+end
