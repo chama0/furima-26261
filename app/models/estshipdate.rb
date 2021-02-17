@@ -5,4 +5,8 @@ class Estshipdate < ActiveHash::Base
     { id: 3, name: '2~3日で発送'},
     { id: 4, name: '3~7日で発送'}
   ]
+
+  include ActiveHash::Associations
+  has_many :items
+
 end
