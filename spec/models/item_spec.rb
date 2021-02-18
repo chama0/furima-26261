@@ -3,11 +3,6 @@ require 'rails_helper'
 RSpec.describe Item, type: :model do
   before do
     @item = FactoryBot.build(:item)
-    @item.category_id = 2
-    @item.status_id = 2
-    @item.shipfee_id = 2
-    @item.prefecture_id = 2
-    @item.estshipdate_id = 2
   end
 
   describe '#new' do
