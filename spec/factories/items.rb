@@ -7,7 +7,7 @@ FactoryBot.define do
     shipfee     { Shipfee.all.sample }
     prefecture  { Prefecture.all.sample }
     estshipdate { Estshipdate.all.sample }
-    price       { '1000' }
+    price       { 1000 }
     association :user
     after(:build) do |item|
       item.image.attach(io: File.open('public/images/test_image.jpg'), filename: 'test_image.jpg')
