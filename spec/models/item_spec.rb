@@ -19,7 +19,8 @@ RSpec.describe Item, type: :model do
 
     context '商品が保存できない場合' do
       it 'nameとdescriptionとcategory_idとstatus_idとshipfee_idとprefecture_idとestshipdate_idとpriceとimageが存在しないと保存できないこと' do
-        @item = build(:item, name: nil, description: nil, category_id: nil, status_id: nil, shipfee_id: nil, prefecture_id: nil, estshipdate_id: nil, price: nil, image: nil)
+        @item = build(:item, name: nil, description: nil, category_id: nil, status_id: nil, shipfee_id: nil, prefecture_id: nil,
+                             estshipdate_id: nil, price: nil, image: nil)
         expect(@item).not_to be_valid
       end
 
