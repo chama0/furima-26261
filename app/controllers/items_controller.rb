@@ -4,7 +4,6 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = Item.new if user_signed_in?
   end
 
   def create
