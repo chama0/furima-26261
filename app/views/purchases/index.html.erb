@@ -14,7 +14,7 @@
         </h2>
         <div class='buy-item-price'>
           <p class='item-price-text'>¥<%= @item.price %></p>
-          <p class='item-price-sub-text'><%= '配送料負担' %></p>
+          <p class='item-price-sub-text'><%= @item.shipfee.name %></p>
         </div>
       </div>
     </div>
