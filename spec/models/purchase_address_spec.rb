@@ -87,11 +87,30 @@ RSpec.describe PurchaseAddress, type: :model do
         expect(@purchase_address.errors.full_messages).to include('Phone number is invalid')
       end
 
+      it 'phone_numberは数字のみでないと登録できないこと' do
+        @purchase_address.phone_number = 'aaa-1234-5678'
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include('Phone number is invalid')
+      end
+
       it 'phone_numberが12桁以上の場合は保存できないこと' do
         @purchase_address.phone_number = '090123456789'
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include('Phone number is invalid')
       end
+
+      it 'user_idが空だと購入できないこと' do
+        @purchase_address.user_id = nil
+        @purchase_address.valid?
+        expect(@purchase_address).not_to be_valid
+      end
+
+      it 'item_idが空だと購入できないこと' do
+        @purchase_address.item_id = nil
+        @purchase_address.valid?
+        expect(@purchase_address).not_to be_valid
+      end
+
     end
   end
 end
