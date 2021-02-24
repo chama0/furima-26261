@@ -4,10 +4,13 @@ class PurchaseAddress
 
   with_options presence: true do
     validates :zipcode, format: { with: /\A\d{3}[-]\d{4}\z/ }
-    validates :prefecture_id
+    validates :prefecture_id, numericality: { other_than: 1 }
     validates :municipalities
     validates :house_number
     validates :phone_number, format: { with: /\A\d{10,11}\z/ }
+    validates :token
+    validates :user_id
+    validates :item_id
   end
 
   def save
