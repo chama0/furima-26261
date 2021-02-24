@@ -11,8 +11,7 @@ class PurchaseAddress
   end
 
   def save
-    user = User.all
-    purchase = Purchase.create(user_id: currrent_user.id, item_id: params[item_id])
+    purchase = Purchase.create(user_id: user_id, item_id: item_id)
     Address.create(zipcode: zipcode, prefecture_id: prefecture_id, municipalities: municipalities, house_number: house_number, building_name: building_name, phone_number: phone_number, purchase_id: purchase.id)
   end
 end 
